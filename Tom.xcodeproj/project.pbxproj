@@ -14,6 +14,7 @@
 		DF22E31B1D6D78EA0005ABAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */; };
 		DF22E31E1D6D78EA0005ABAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */; };
 		DF22E3291D6D78EA0005ABAE /* TomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3281D6D78EA0005ABAE /* TomTests.swift */; };
+		DF22E3341D6D82A90005ABAE /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3331D6D82A90005ABAE /* BleManager.swift */; };
 		ECD185E9A102B05385B73B96 /* Pods_Tom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F786DD5740266BA24FE8F48 /* Pods_Tom.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		DF22E3241D6D78EA0005ABAE /* TomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF22E3281D6D78EA0005ABAE /* TomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomTests.swift; sourceTree = "<group>"; };
 		DF22E32A1D6D78EA0005ABAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF22E3331D6D82A90005ABAE /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */,
 				DF22E3151D6D78EA0005ABAE /* ViewController.swift */,
+				DF22E3331D6D82A90005ABAE /* BleManager.swift */,
 				DF22E3171D6D78EA0005ABAE /* Main.storyboard */,
 				DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */,
 				DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */,
@@ -330,6 +333,7 @@
 			files = (
 				DF22E3161D6D78EA0005ABAE /* ViewController.swift in Sources */,
 				DF22E3141D6D78EA0005ABAE /* AppDelegate.swift in Sources */,
+				DF22E3341D6D82A90005ABAE /* BleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +415,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -449,6 +454,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

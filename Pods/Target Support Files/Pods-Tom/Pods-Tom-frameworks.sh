@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Observable-Swift/Observable.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RZBluetooth/RZBluetooth.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Observable-Swift/Observable.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RZBluetooth/RZBluetooth.framework"
 fi
