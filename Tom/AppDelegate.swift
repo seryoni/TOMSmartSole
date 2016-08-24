@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setupLogger()
+        
         return true
     }
 
@@ -44,3 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    
+    func setupLogger() {
+        
+        #if DEBUG
+            defaultDebugLevel = DDLogLevel.Verbose
+            DDLog.addLogger(DDASLLogger.sharedInstance())
+            DDLog.addLogger(DDTTYLogger.sharedInstance())
+        #else
+            defaultDebugLevel = DDLogLevel.Info
+        #endif
+        
+        let fileLogger = DDFileLogger(logFileManager: DDLogFileManagerDefault())
+        DDLog.addLogger(fileLogger)
+        //SendLogsController.fileLogger = fileLogger
+    }
+}
