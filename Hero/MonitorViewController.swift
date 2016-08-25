@@ -54,6 +54,7 @@ class MonitorViewController: UIViewController {
             TSMessage.dismissActiveNotification()
             TSMessage.showNotificationWithTitle("Device Connected", type: TSMessageNotificationType.Success)
             self.updateConnectButton()
+            self.showMessage("Connected")
         }
         
         bleManager.onDidDisconnectedToDevice = {
@@ -61,12 +62,14 @@ class MonitorViewController: UIViewController {
             TSMessage.dismissActiveNotification()
             TSMessage.showNotificationWithTitle("Device Disconnected", type: TSMessageNotificationType.Warning)
             self.updateConnectButton()
+            self.alertLabel.text = ""
         }
         
         bleManager.onErrorClosure = { msg in
             TSMessage.dismissActiveNotification()
             TSMessage.showNotificationWithTitle(msg, type: TSMessageNotificationType.Error)
             self.updateConnectButton()
+            self.alertLabel.text = ""
         }
         
         startMonitorBattery()
@@ -139,6 +142,7 @@ class MonitorViewController: UIViewController {
     }
     
     @IBAction func disconnectAction(sender: AnyObject) {
+        alertLabel.text = ""
         bleManager.disconnect()
     }
 
@@ -147,7 +151,11 @@ class MonitorViewController: UIViewController {
     }
 
     func showAlert() {
-        self.alertLabel.text = "Over pressure detected! take a break"
+        showMessage("Over pressure detected! take a break")
+    }
+    
+    func showMessage(text: String) {
+        self.alertLabel.text = text
         let alertDate = NSDate()
         self.alertDate = alertDate
         

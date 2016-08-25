@@ -71,13 +71,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLogInfo("applicationWillTerminate")
     }
 
-
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        if let host = url.host where url.scheme == "hero" && host == "app" {
+            // hero://app?sendlogs=1
+            let comp = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)
+            if let q: NSURLQueryItem = comp?.queryItems?.first, value = q.value {
+                if q.name == "sendlogs" && value == "1" {
+                    showSendLogs()
+                    return true
+                }
+            }
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension AppDelegate {
     
-    func setupLogger() {
-        
+    private func setupLogger() {
         // :configuration = Debug
         // OTHER_SWIFT_FLAGS = -DDEBUG
         
@@ -91,7 +104,13 @@ extension AppDelegate {
         
         let fileLogger = DDFileLogger(logFileManager: DDLogFileManagerDefault())
         DDLog.addLogger(fileLogger)
-        //SendLogsController.fileLogger = fileLogger
+        SendLogsController.fileLogger = fileLogger
+    }
+    
+    // to test, paste "hero://app?sendlogs=1" in Safari
+    private func showSendLogs() {
+        let vc = ServiceViewController.createSendLogsViewController(false)
+        window?.rootViewController = vc
     }
 }
 

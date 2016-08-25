@@ -25,6 +25,9 @@
 		DF72E6721D6F336F0074D064 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6711D6F336F0074D064 /* Helpers.swift */; };
 		DF72E6741D6F340D0074D064 /* EventsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6731D6F340D0074D064 /* EventsStore.swift */; };
 		DF72E6761D6F371F0074D064 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6751D6F371F0074D064 /* TSMessagesDefaultDesign.json */; };
+		DF72E67A1D6F44C70074D064 /* SendLogsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6771D6F44C70074D064 /* SendLogsHelper.swift */; };
+		DF72E67B1D6F44C70074D064 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6781D6F44C70074D064 /* ServiceViewController.swift */; };
+		DF72E67C1D6F44C70074D064 /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6791D6F44C70074D064 /* ServiceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		DF72E6711D6F336F0074D064 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		DF72E6731D6F340D0074D064 /* EventsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsStore.swift; sourceTree = "<group>"; };
 		DF72E6751D6F371F0074D064 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		DF72E6771D6F44C70074D064 /* SendLogsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogsHelper.swift; sourceTree = "<group>"; };
+		DF72E6781D6F44C70074D064 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		DF72E6791D6F44C70074D064 /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
 		E07381ED0587E3EA1CCF18AC /* Pods-HeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A4C9C1BC78115C16AF485B /* Pods-Hero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hero.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hero/Pods-Hero.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +145,7 @@
 				DF72E66F1D6F2F2E0074D064 /* StyleKit.swift */,
 				DF72E6711D6F336F0074D064 /* Helpers.swift */,
 				DF72E6731D6F340D0074D064 /* EventsStore.swift */,
+				DF72E67D1D6F44CB0074D064 /* Send Logs */,
 				DF72E66E1D6F26950074D064 /* Tests.md */,
 				DF72E6751D6F371F0074D064 /* TSMessagesDefaultDesign.json */,
 				DF72E6521D6F0F430074D064 /* Main.storyboard */,
@@ -156,6 +163,16 @@
 				DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */,
 			);
 			path = HeroTests;
+			sourceTree = "<group>";
+		};
+		DF72E67D1D6F44CB0074D064 /* Send Logs */ = {
+			isa = PBXGroup;
+			children = (
+				DF72E6771D6F44C70074D064 /* SendLogsHelper.swift */,
+				DF72E6781D6F44C70074D064 /* ServiceViewController.swift */,
+				DF72E6791D6F44C70074D064 /* ServiceViewController.xib */,
+			);
+			name = "Send Logs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF72E67C1D6F44C70074D064 /* ServiceViewController.xib in Resources */,
 				DF72E65E1D6F0F430074D064 /* Main.storyboard in Resources */,
 				DF72E65C1D6F0F430074D064 /* Assets.xcassets in Resources */,
 				DF72E6761D6F371F0074D064 /* TSMessagesDefaultDesign.json in Resources */,
@@ -362,6 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF72E66D1D6F1BB40074D064 /* CurrentDevice.swift in Sources */,
+				DF72E67A1D6F44C70074D064 /* SendLogsHelper.swift in Sources */,
+				DF72E67B1D6F44C70074D064 /* ServiceViewController.swift in Sources */,
 				DF72E65B1D6F0F430074D064 /* AppDelegate.swift in Sources */,
 				DF72E6701D6F2F2E0074D064 /* StyleKit.swift in Sources */,
 				DF72E6631D6F0F430074D064 /* PressureMeasurment.swift in Sources */,
