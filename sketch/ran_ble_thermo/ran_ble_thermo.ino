@@ -76,7 +76,7 @@ CountUpDownTimer T(UP, HIGH); // Default precision is HIGH, but you can change i
 int32_t htsServiceId;
 int32_t htsMeasureCharId;
 
-int threshold = 850;
+int threshold = 300;
 
 int on_led = 10;
 int ble_led=11;
@@ -148,7 +148,8 @@ digitalWrite(on_led,HIGH);
   /* Add the Heart Rate Service definition */
   /* Service ID should be 1 */
   Serial.println(F("Adding the Health Thermometer Service definition (UUID = 0x1809): "));
-  htsServiceId = gatt.addService(0x2809);
+  //htsServiceId = gatt.addService(0x1809);
+  htsServiceId = gatt.addService(0x1809);
   if (htsServiceId == 0) {
     error(F("Could not add Thermometer service"));
   }
@@ -183,15 +184,15 @@ void loop(void)
  ble_check();
 
 
-if (analogRead(A0)>=threshold){
-  time_count();
-}
+//if (analogRead(A0)>=threshold){
+ // time_count();
+//}
 battery_check();
 
+Serial.print(analogRead(A0));
 
 
-
-/*
+temp=analogRead(A0);
 
   temp_d= (double) temp;
   Serial.print("Value:");
@@ -212,8 +213,8 @@ Serial.println(temp_measurement[4]);
   gatt.setChar(htsMeasureCharId, temp_measurement, 5);
   /* Delay before next measurement update */
 
-  */
-  delay(1000);
+ 
+  delay(5000);
 }
 
 void battery_check(){
@@ -250,6 +251,8 @@ if(! ble.isConnected()) digitalWrite(ble_led, LOW);
 
 void time_count(){
 
+    Serial.print("count 1 hr");
+
   long t=0;
   long count_sec = 0;
   long count_min =0;
@@ -271,33 +274,44 @@ void time_count(){
 
     T.Timer();
     temp_long=temp;
+  
    while(T.ShowHours()<1){ 
-    t=0;
-
+   
+  //Serial.println(temp_d);
       cont_flag = true;
 
       while (cont_flag) {
         cont_flag = false;
-        
-        while(t<50*2 && temp_long<threshold){
+         t=0;
+        do{
+
+          
+            Serial.println(t);
+
           temp_long=0;
           for(int i=0;i<5;i++){
         
           temp_long+=analogRead(A0);
             delay(20);
+            t=t+20;
           }
         
           temp_long=temp_long/5;
   
           if (temp_long > threshold) {
+            Serial.println("TH");
+            
             cont_flag = true;
           }
-        }
+          
+        }   
+        while(t<1000*4);
+
 
         if (cont_flag) count_sec++; 
           
         }
-       }
+       
 
        
  
@@ -316,44 +330,48 @@ void time_count(){
 
       battery_check();
       
-      if(prev_count_sec!=count_sec){
-  prev_count_sec=count_sec;
-  if(count_sec==15) {
-    count_min++;
-    count_sec=0;
-  }
-  if(count_min==15){
+      if(prev_count_sec < count_sec){
+        Serial.println("prev if");
+        prev_count_sec=count_sec;
+        if(count_sec>=5) {
+                  Serial.println("sec>15");
 
-
- temp_measurement[1]= temp_16 = (uint16_t)count_sec;
-//temp_measurement[2] = temp_16 >> 8;
-
-gatt.setChar(htsMeasureCharId, temp_measurement, 5)
-    
-    buzzer_alarm1();
-  }
+           count_min++;
+           count_sec=0;
+        }
+       
   
   }
+ if(count_min==1){
 
+
+ temp_measurement[1]= temp_16 = (uint16_t)count_min;
+//temp_measurement[2] = temp_16 >> 8;
+
+gatt.setChar(htsMeasureCharId, temp_measurement, 5);
+    
+    buzzer_alarm1();
+     T.ResetTimer();
+    return;
+  }
   //else if(temp<threshold) return;
+   
    }
-
    T.ResetTimer();
   }
 
-  
- }
+} 
+
   
 
 
 void buzzer_alarm1(){
 
-  if(temp>threshold){
-  digitalWrite(buzzer,HIGH);
-}
-else if(temp<threshold){
-  digitalWrite(buzzer,LOW);
-}
 
-  delay(2000);
+  digitalWrite(buzzer,HIGH);
+ delay(2000);
+
+  digitalWrite(buzzer,LOW);
+
+ 
 }

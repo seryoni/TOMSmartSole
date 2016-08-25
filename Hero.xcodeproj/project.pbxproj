@@ -20,6 +20,7 @@
 		DF72E6641D6F0F430074D064 /* PressurePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E65A1D6F0F430074D064 /* PressurePeripheral.swift */; };
 		DF72E66A1D6F0F550074D064 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6661D6F0F4D0074D064 /* Info.plist */; };
 		DF72E66B1D6F0F550074D064 /* PressureMeasurementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */; };
+		DF72E66D1D6F1BB40074D064 /* CurrentDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E66C1D6F1BB40074D064 /* CurrentDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DF72E65A1D6F0F430074D064 /* PressurePeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressurePeripheral.swift; sourceTree = "<group>"; };
 		DF72E6661D6F0F4D0074D064 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurementTests.swift; sourceTree = "<group>"; };
+		DF72E66C1D6F1BB40074D064 /* CurrentDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDevice.swift; sourceTree = "<group>"; };
 		E07381ED0587E3EA1CCF18AC /* Pods-HeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6A4C9C1BC78115C16AF485B /* Pods-Hero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hero.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hero/Pods-Hero.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				DF72E6501D6F0F430074D064 /* LaunchScreen.storyboard */,
 				DF72E6521D6F0F430074D064 /* Main.storyboard */,
 				DF72E6551D6F0F430074D064 /* Info.plist */,
+				DF72E66C1D6F1BB40074D064 /* CurrentDevice.swift */,
 			);
 			path = Hero;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF72E66D1D6F1BB40074D064 /* CurrentDevice.swift in Sources */,
 				DF72E65B1D6F0F430074D064 /* AppDelegate.swift in Sources */,
 				DF72E6631D6F0F430074D064 /* PressureMeasurment.swift in Sources */,
 				DF72E6641D6F0F430074D064 /* PressurePeripheral.swift in Sources */,

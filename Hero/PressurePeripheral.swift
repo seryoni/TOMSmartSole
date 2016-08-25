@@ -17,8 +17,8 @@ enum PressureProfile: String {
     
     // https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.temperature_measurement.xml
     
-    case Service = "2809" // Our Pressure profile
-    //case Service = "1809" // health thermometer    
+    //case Service = "A809" // Our Pressure profile
+    case Service = "1809" // health thermometer
     case MeasurementCharacteristic = "2A1C"
     
     var cbUUID: CBUUID {
@@ -26,12 +26,13 @@ enum PressureProfile: String {
     }
 }
 
-class PressurePeripheral {
+class PressurePeripheral: NSObject {
     
     let peripheral: RZBPeripheral
     
     init(peripheral: RZBPeripheral) {
         self.peripheral = peripheral
+        super.init()
     }
     
     func addPressureObserver(update: PressurePeripheralUpdateCompletion, completion: PressurePeripheralErrorBlock?) {
@@ -67,6 +68,8 @@ class PressurePeripheral {
             completion(error)
         }
     }
-    
+ 
+    func handleStateChange() {
+        
+    }
 }
-

@@ -118,7 +118,11 @@ void setup(void)
   Serial.println(F("Adding the Health Thermometer Service definition (UUID = 0x1809): "));
 
   // Custom service: 0x1809
-  htsServiceId = gatt.addService(0x2809);
+                        // E948FC32-FC63-4DA9-8283-E6B75B62F510
+  //uint8_t serviceUUID[] { 0x02, 0x01, 0x06, 0x05, 0x02, 0x09, 0x18, 0x0a, 0x18 };
+  htsServiceId = gatt.addService(0x1809);
+  
+  
   if (htsServiceId == 0) {
     error(F("Could not add Thermometer service"));
   }

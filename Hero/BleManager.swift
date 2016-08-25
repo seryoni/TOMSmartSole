@@ -9,8 +9,35 @@
 import Foundation
 import RZBluetooth
 import CocoaLumberjack
+import CoreBluetooth
 
-class BleManager {
+extension CBCentralManagerState {
+
+    var name: String {
+        switch self {
+        case Unknown: return "Unknown"
+        case Resetting: return "Resetting"
+        case Unsupported: return "Unsupported"
+        case Unauthorized: return "Unauthorized"
+        case PoweredOff: return "PoweredOff"
+        case PoweredOn: return "PoweredOn"
+        }
+    }
+    
+}
+
+extension RZBPeripheralStateEvent {
+    var name: String {
+        switch self {
+        case ConnectSuccess: return "ConnectSuccess"
+        case ConnectFailure: return "ConnectFailure"
+        case Disconnected: return "Disconnected"
+        }
+    }
+}
+
+class BleManager: NSObject {
+    
     var centralManager: RZBCentralManager!
     
     var onMeasurementChange: ((value: Double) -> Void)?
@@ -19,9 +46,10 @@ class BleManager {
     
     weak var pressurePeriphral: PressurePeripheral?
     
-    init () {
+    override init () {
         centralManager = RZBCentralManager(identifier: "Hero", queue: nil)
-        setup()
+        super.init()
+        self.setup()
     }
     
     func setup() {
@@ -33,7 +61,44 @@ class BleManager {
                 return
             }
             
+            DDLogInfo("restorationHandler: \(peripheral.identifier.UUIDString)")
+            if let currentDevice = CurrentDevice.currentDevice() {
+                DDLogInfo("restorationHandler: currentDevice \(currentDevice.UUID)")
+            }
+            
             self.startMonitor(peripheral)
+        }
+        
+        centralManager.centralStateHandler = handleCentralStateChange
+    }
+    
+    func handleCentralStateChange(state: CBCentralManagerState) -> Void {
+        DDLogInfo("handleCentralStateChange: state:\(state.name)(\(state))")
+        
+        if state == .PoweredOn {
+            handlePowerOn()
+        }
+    }
+    
+    func handlePowerOn() {
+        if peripheral != nil {
+            return
+        }
+        
+        if let device = CurrentDevice.currentDevice(),
+            nsUUID = NSUUID(UUIDString: device.UUID) {
+            
+            let peripheral = centralManager.peripheralForUUID(nsUUID)
+            peripheral.connectWithCompletion({ (error: NSError?) in
+                if let error = error {
+                    DDLogError("connectWithCompletion: \(error)")
+                    self.scanForPeripherals()
+                    return
+                }
+                
+                // reconnect to known device
+                self.handleConnectedToPeripheral(peripheral)
+            })
         }
     }
     
@@ -41,13 +106,21 @@ class BleManager {
         DDLogInfo("BleManager: scanForPeripherals")
         let serviceUUID = PressureProfile.Service.cbUUID
         centralManager.scanForPeripheralsWithServices([serviceUUID], options: nil) { scanInfo, error in
-            guard let peripheral = scanInfo?.peripheral else {
+            guard let peripheral: RZBPeripheral = scanInfo?.peripheral else {
                 DDLogError("BleManager:scanForPeripherals: ERROR: \(error!)")
                 return
             }
-            self.centralManager.stopScan()
-            self.startMonitor(peripheral)
+            
+            let device = CurrentDevice(UUID: peripheral.identifier.UUIDString)
+            device.save()
+            
+            self.handleConnectedToPeripheral(peripheral)
         }
+    }
+    
+    func handleConnectedToPeripheral(peripheral: RZBPeripheral) {
+        self.centralManager.stopScan()
+        self.startMonitor(peripheral)
     }
     
     func startMonitor(peripheral: RZBPeripheral) {
@@ -75,6 +148,8 @@ class BleManager {
                 guard let error = error else { return }
                 DDLogError("BleManager:startMonitor: ERROR: \(error)")
         }
+        
+        peripheral.connectionDelegate = self
     }
     
     func startHRMMonitor(peripheral: RZBPeripheral) {
@@ -91,5 +166,27 @@ class BleManager {
                 guard let error = error else { return }
                 DDLogError("BleManager:startMonitor: ERROR: \(error)")
         })
+    }
+}
+
+extension BleManager: RZBPeripheralConnectionDelegate {
+    func peripheral(peripheral: RZBPeripheral, connectionEvent event: RZBPeripheralStateEvent, error: NSError?) {
+        if let error = error {
+            DDLogError("peripheral: connectionEvent - error:\(error)")
+            
+            return
+        }
+        
+        DDLogInfo("peripheral: connectionEvent: \(event.name)(\(event.rawValue))")
+        
+        switch event {
+        case .ConnectSuccess:
+            DDLogInfo("ConnectSuccess")
+        case .ConnectFailure:
+            DDLogInfo("ConnectFailure")
+            //peripheral.
+        case .Disconnected:
+            DDLogInfo("Disconnected")
+        }
     }
 }
