@@ -1,6 +1,6 @@
 //
 //  PressureAlertEvent.swift
-//  Tom
+//  Hero
 //
 //  Created by Nissan Tsafrir on 25.8.2016.
 //  Copyright © 2016 Pix & Byte. All rights reserved.

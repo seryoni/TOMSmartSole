@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Tom
+//  Hero
 //
 //  Created by Nissan Tsafrir on 24.8.2016.
 //  Copyright © 2016 Pix & Byte. All rights reserved.

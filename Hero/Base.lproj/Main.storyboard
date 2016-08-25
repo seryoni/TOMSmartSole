@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Monitor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MonitorViewController" customModule="Tom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MonitorViewController" customModule="Hero" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,19 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yg-fB-BXF">
-                                <rect key="frame" x="285" y="263.5" width="52" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yg-fB-BXF">
+                                <rect key="frame" x="274" y="263.5" width="52" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-hi-tgu">
-                                <rect key="frame" x="270.5" y="550" width="59" height="30"/>
+                                <rect key="frame" x="270" y="550" width="59" height="30"/>
                                 <state key="normal" title="Connect"/>
                                 <connections>
                                     <action selector="startScanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCb-F5-yBM"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-HU-p1F">
+                                <rect key="frame" x="20" y="559" width="97" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZN-Mr-bLa">
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-7a-7OD">
+                                        <rect key="frame" x="69" y="0.0" width="29" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="dVl-rp-mht"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -37,9 +58,12 @@
                             <constraint firstItem="7yg-fB-BXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SHU-5f-wq4"/>
                             <constraint firstItem="i6d-hi-tgu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U0S-AQ-gbb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i6d-hi-tgu" secondAttribute="bottom" constant="20" id="m44-zA-lHl"/>
+                            <constraint firstItem="2UO-HU-p1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sOm-0R-V6b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2UO-HU-p1F" secondAttribute="bottom" constant="20" id="vGy-8e-Oa2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="batteryPercentageLabel" destination="yMG-7a-7OD" id="xAf-5E-Uf9"/>
                         <outlet property="measurmentLabel" destination="7yg-fB-BXF" id="m9S-ex-Knb"/>
                         <outlet property="startScanButton" destination="i6d-hi-tgu" id="A2d-Bg-1tb"/>
                     </connections>

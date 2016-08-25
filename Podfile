@@ -10,11 +10,11 @@ def testsPods
     pod 'Nimble', '~> 4.0'
 end
 
-target 'Tom' do
+target 'Hero' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Tom
+  # Pods for Hero
 	pod 'Observable-Swift'
     pod 'CocoaLumberjack/Swift'
 	pod 'Fabric'
@@ -23,7 +23,7 @@ target 'Tom' do
 	pod 'RZBluetooth'
 	pod 'TSMessages'
 	
-  target 'TomTests' do
+  target 'HeroTests' do
     inherit! :search_paths
     # Pods for testing
     testsPods

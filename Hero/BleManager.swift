@@ -1,6 +1,6 @@
 //
 //  BleManager.swift
-//  Tom
+//  Hero
 //
 //  Created by Nissan Tsafrir on 24.8.2016.
 //  Copyright © 2016 Pix & Byte. All rights reserved.
@@ -15,8 +15,12 @@ class BleManager {
     
     var onMeasurementChange: ((value: Double) -> Void)?
     
+    weak var peripheral: RZBPeripheral?
+    
+    weak var pressurePeriphral: PressurePeripheral?
+    
     init () {
-        centralManager = RZBCentralManager(identifier: "tom", queue: nil)
+        centralManager = RZBCentralManager(identifier: "Hero", queue: nil)
         setup()
     }
     
@@ -50,7 +54,10 @@ class BleManager {
         DDLogInfo("BleManager: startMonitor: PressureMeasurment")
         peripheral.maintainConnection = true
         
+        self.peripheral = peripheral
+        
         let pressurePeriphral = PressurePeripheral(peripheral: peripheral)
+        self.pressurePeriphral = pressurePeriphral
         
         pressurePeriphral.addPressureObserver({ (measurment: PressureMeasurment?, error: NSError?) in
             guard let pressure = measurment?.pressure else { return }

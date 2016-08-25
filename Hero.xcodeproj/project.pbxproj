@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35002C92F06CD59BBD9E8080 /* Pods_TomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2590E9CCA079F870A7845C8E /* Pods_TomTests.framework */; };
-		DF22E3141D6D78EA0005ABAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */; };
-		DF22E3161D6D78EA0005ABAE /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3151D6D78EA0005ABAE /* MonitorViewController.swift */; };
-		DF22E3191D6D78EA0005ABAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF22E3171D6D78EA0005ABAE /* Main.storyboard */; };
-		DF22E31B1D6D78EA0005ABAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */; };
-		DF22E31E1D6D78EA0005ABAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */; };
-		DF22E3341D6D82A90005ABAE /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3331D6D82A90005ABAE /* BleManager.swift */; };
-		DF22E3361D6EDC380005ABAE /* PressurePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3351D6EDC380005ABAE /* PressurePeripheral.swift */; };
-		DF22E3381D6EDD050005ABAE /* PressureMeasurment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3371D6EDD050005ABAE /* PressureMeasurment.swift */; };
-		DF22E33A1D6EEBE40005ABAE /* PressureMeasurementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3391D6EEBE40005ABAE /* PressureMeasurementTests.swift */; };
-		DF7B0C101D6F012000245928 /* PressureAlertEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B0C0F1D6F012000245928 /* PressureAlertEvent.swift */; };
-		ECD185E9A102B05385B73B96 /* Pods_Tom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F786DD5740266BA24FE8F48 /* Pods_Tom.framework */; };
+		7908CC243986779E593A8F16 /* Pods_HeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25EFC6B948F6157DBB9C34DF /* Pods_HeroTests.framework */; };
+		9F0D430CF675EC0C45E7462C /* Pods_Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A2F5C897800327858B5757 /* Pods_Hero.framework */; };
+		DF72E65B1D6F0F430074D064 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E64E1D6F0F430074D064 /* AppDelegate.swift */; };
+		DF72E65C1D6F0F430074D064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF72E64F1D6F0F430074D064 /* Assets.xcassets */; };
+		DF72E65D1D6F0F430074D064 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6501D6F0F430074D064 /* LaunchScreen.storyboard */; };
+		DF72E65E1D6F0F430074D064 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6521D6F0F430074D064 /* Main.storyboard */; };
+		DF72E65F1D6F0F430074D064 /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6541D6F0F430074D064 /* BleManager.swift */; };
+		DF72E6611D6F0F430074D064 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6561D6F0F430074D064 /* MonitorViewController.swift */; };
+		DF72E6621D6F0F430074D064 /* PressureAlertEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6581D6F0F430074D064 /* PressureAlertEvent.swift */; };
+		DF72E6631D6F0F430074D064 /* PressureMeasurment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6591D6F0F430074D064 /* PressureMeasurment.swift */; };
+		DF72E6641D6F0F430074D064 /* PressurePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E65A1D6F0F430074D064 /* PressurePeripheral.swift */; };
+		DF72E66A1D6F0F550074D064 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6661D6F0F4D0074D064 /* Info.plist */; };
+		DF72E66B1D6F0F550074D064 /* PressureMeasurementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,26 +33,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21CA7B2D22F0B323D7EC3823 /* Pods-Tom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tom/Pods-Tom.debug.xcconfig"; sourceTree = "<group>"; };
-		2590E9CCA079F870A7845C8E /* Pods_TomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E25030868666D983461386A /* Pods-Tom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tom.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tom/Pods-Tom.release.xcconfig"; sourceTree = "<group>"; };
-		5773F654851B5174F1E02394 /* Pods-TomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomTests/Pods-TomTests.release.xcconfig"; sourceTree = "<group>"; };
-		5EEB77094FEF3C92CB07FE62 /* Pods-TomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomTests/Pods-TomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9F786DD5740266BA24FE8F48 /* Pods_Tom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF22E3101D6D78EA0005ABAE /* Tom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF22E3151D6D78EA0005ABAE /* MonitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
-		DF22E3181D6D78EA0005ABAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DF22E31D1D6D78EA0005ABAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DF22E31F1D6D78EA0005ABAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF22E3241D6D78EA0005ABAE /* TomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF22E32A1D6D78EA0005ABAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF22E3331D6D82A90005ABAE /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
-		DF22E3351D6EDC380005ABAE /* PressurePeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressurePeripheral.swift; sourceTree = "<group>"; };
-		DF22E3371D6EDD050005ABAE /* PressureMeasurment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurment.swift; sourceTree = "<group>"; };
-		DF22E3391D6EEBE40005ABAE /* PressureMeasurementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurementTests.swift; sourceTree = "<group>"; };
-		DF7B0C0F1D6F012000245928 /* PressureAlertEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureAlertEvent.swift; sourceTree = "<group>"; };
+		25EFC6B948F6157DBB9C34DF /* Pods_HeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A2F5C897800327858B5757 /* Pods_Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EC4FD010939FA2023FE2831 /* Pods-Hero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hero/Pods-Hero.debug.xcconfig"; sourceTree = "<group>"; };
+		94B3F9F4860AEAE0CA53AA93 /* Pods-HeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF22E3101D6D78EA0005ABAE /* Hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF22E3241D6D78EA0005ABAE /* Hero.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hero.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF72E64E1D6F0F430074D064 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF72E64F1D6F0F430074D064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF72E6511D6F0F430074D064 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DF72E6531D6F0F430074D064 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DF72E6541D6F0F430074D064 /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
+		DF72E6551D6F0F430074D064 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF72E6561D6F0F430074D064 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
+		DF72E6581D6F0F430074D064 /* PressureAlertEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureAlertEvent.swift; sourceTree = "<group>"; };
+		DF72E6591D6F0F430074D064 /* PressureMeasurment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurment.swift; sourceTree = "<group>"; };
+		DF72E65A1D6F0F430074D064 /* PressurePeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressurePeripheral.swift; sourceTree = "<group>"; };
+		DF72E6661D6F0F4D0074D064 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurementTests.swift; sourceTree = "<group>"; };
+		E07381ED0587E3EA1CCF18AC /* Pods-HeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6A4C9C1BC78115C16AF485B /* Pods-Hero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hero.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hero/Pods-Hero.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD185E9A102B05385B73B96 /* Pods_Tom.framework in Frameworks */,
+				9F0D430CF675EC0C45E7462C /* Pods_Hero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35002C92F06CD59BBD9E8080 /* Pods_TomTests.framework in Frameworks */,
+				7908CC243986779E593A8F16 /* Pods_HeroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,8 +78,8 @@
 		54C2A9EAA5BC0F8B0B6967E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9F786DD5740266BA24FE8F48 /* Pods_Tom.framework */,
-				2590E9CCA079F870A7845C8E /* Pods_TomTests.framework */,
+				58A2F5C897800327858B5757 /* Pods_Hero.framework */,
+				25EFC6B948F6157DBB9C34DF /* Pods_HeroTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,10 +87,10 @@
 		948439D1150DB2E9B3194576 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				21CA7B2D22F0B323D7EC3823 /* Pods-Tom.debug.xcconfig */,
-				4E25030868666D983461386A /* Pods-Tom.release.xcconfig */,
-				5EEB77094FEF3C92CB07FE62 /* Pods-TomTests.debug.xcconfig */,
-				5773F654851B5174F1E02394 /* Pods-TomTests.release.xcconfig */,
+				5EC4FD010939FA2023FE2831 /* Pods-Hero.debug.xcconfig */,
+				E6A4C9C1BC78115C16AF485B /* Pods-Hero.release.xcconfig */,
+				E07381ED0587E3EA1CCF18AC /* Pods-HeroTests.debug.xcconfig */,
+				94B3F9F4860AEAE0CA53AA93 /* Pods-HeroTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -97,8 +98,8 @@
 		DF22E3071D6D78EA0005ABAE = {
 			isa = PBXGroup;
 			children = (
-				DF22E3121D6D78EA0005ABAE /* Tom */,
-				DF22E3271D6D78EA0005ABAE /* TomTests */,
+				DF72E64D1D6F0F430074D064 /* Hero */,
+				DF72E6651D6F0F4D0074D064 /* HeroTests */,
 				DF22E3111D6D78EA0005ABAE /* Products */,
 				948439D1150DB2E9B3194576 /* Pods */,
 				54C2A9EAA5BC0F8B0B6967E1 /* Frameworks */,
@@ -108,44 +109,44 @@
 		DF22E3111D6D78EA0005ABAE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF22E3101D6D78EA0005ABAE /* Tom.app */,
-				DF22E3241D6D78EA0005ABAE /* TomTests.xctest */,
+				DF22E3101D6D78EA0005ABAE /* Hero.app */,
+				DF22E3241D6D78EA0005ABAE /* Hero.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF22E3121D6D78EA0005ABAE /* Tom */ = {
+		DF72E64D1D6F0F430074D064 /* Hero */ = {
 			isa = PBXGroup;
 			children = (
-				DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */,
-				DF22E3151D6D78EA0005ABAE /* MonitorViewController.swift */,
-				DF22E3331D6D82A90005ABAE /* BleManager.swift */,
-				DF22E3371D6EDD050005ABAE /* PressureMeasurment.swift */,
-				DF22E3351D6EDC380005ABAE /* PressurePeripheral.swift */,
-				DF7B0C0F1D6F012000245928 /* PressureAlertEvent.swift */,
-				DF22E3171D6D78EA0005ABAE /* Main.storyboard */,
-				DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */,
-				DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */,
-				DF22E31F1D6D78EA0005ABAE /* Info.plist */,
+				DF72E64E1D6F0F430074D064 /* AppDelegate.swift */,
+				DF72E6541D6F0F430074D064 /* BleManager.swift */,
+				DF72E6561D6F0F430074D064 /* MonitorViewController.swift */,
+				DF72E6581D6F0F430074D064 /* PressureAlertEvent.swift */,
+				DF72E6591D6F0F430074D064 /* PressureMeasurment.swift */,
+				DF72E65A1D6F0F430074D064 /* PressurePeripheral.swift */,
+				DF72E64F1D6F0F430074D064 /* Assets.xcassets */,
+				DF72E6501D6F0F430074D064 /* LaunchScreen.storyboard */,
+				DF72E6521D6F0F430074D064 /* Main.storyboard */,
+				DF72E6551D6F0F430074D064 /* Info.plist */,
 			);
-			path = Tom;
+			path = Hero;
 			sourceTree = "<group>";
 		};
-		DF22E3271D6D78EA0005ABAE /* TomTests */ = {
+		DF72E6651D6F0F4D0074D064 /* HeroTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF22E32A1D6D78EA0005ABAE /* Info.plist */,
-				DF22E3391D6EEBE40005ABAE /* PressureMeasurementTests.swift */,
+				DF72E6661D6F0F4D0074D064 /* Info.plist */,
+				DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */,
 			);
-			path = TomTests;
+			path = HeroTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DF22E30F1D6D78EA0005ABAE /* Tom */ = {
+		DF22E30F1D6D78EA0005ABAE /* Hero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF22E32D1D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "Tom" */;
+			buildConfigurationList = DF22E32D1D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "Hero" */;
 			buildPhases = (
 				9E4ED27C76D5F3F23B6C310D /* [CP] Check Pods Manifest.lock */,
 				DF22E30C1D6D78EA0005ABAE /* Sources */,
@@ -158,14 +159,14 @@
 			);
 			dependencies = (
 			);
-			name = Tom;
+			name = Hero;
 			productName = Tom;
-			productReference = DF22E3101D6D78EA0005ABAE /* Tom.app */;
+			productReference = DF22E3101D6D78EA0005ABAE /* Hero.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DF22E3231D6D78EA0005ABAE /* TomTests */ = {
+		DF22E3231D6D78EA0005ABAE /* HeroTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF22E3301D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "TomTests" */;
+			buildConfigurationList = DF22E3301D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "HeroTests" */;
 			buildPhases = (
 				A1BFCB0135C554694E7606A0 /* [CP] Check Pods Manifest.lock */,
 				DF22E3201D6D78EA0005ABAE /* Sources */,
@@ -179,9 +180,9 @@
 			dependencies = (
 				DF22E3261D6D78EA0005ABAE /* PBXTargetDependency */,
 			);
-			name = TomTests;
+			name = HeroTests;
 			productName = TomTests;
-			productReference = DF22E3241D6D78EA0005ABAE /* TomTests.xctest */;
+			productReference = DF22E3241D6D78EA0005ABAE /* Hero.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +204,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DF22E30B1D6D78EA0005ABAE /* Build configuration list for PBXProject "Tom" */;
+			buildConfigurationList = DF22E30B1D6D78EA0005ABAE /* Build configuration list for PBXProject "Hero" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -216,8 +217,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF22E30F1D6D78EA0005ABAE /* Tom */,
-				DF22E3231D6D78EA0005ABAE /* TomTests */,
+				DF22E30F1D6D78EA0005ABAE /* Hero */,
+				DF22E3231D6D78EA0005ABAE /* HeroTests */,
 			);
 		};
 /* End PBXProject section */
@@ -227,9 +228,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF22E31E1D6D78EA0005ABAE /* LaunchScreen.storyboard in Resources */,
-				DF22E31B1D6D78EA0005ABAE /* Assets.xcassets in Resources */,
-				DF22E3191D6D78EA0005ABAE /* Main.storyboard in Resources */,
+				DF72E65E1D6F0F430074D064 /* Main.storyboard in Resources */,
+				DF72E65C1D6F0F430074D064 /* Assets.xcassets in Resources */,
+				DF72E65D1D6F0F430074D064 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF72E66A1D6F0F550074D064 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TomTests/Pods-TomTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3E4A88324581B322706F6993 /* [CP] Embed Pods Frameworks */ = {
@@ -270,7 +272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tom/Pods-Tom-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hero/Pods-Hero-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		622B61476878B12469296648 /* [CP] Embed Pods Frameworks */ = {
@@ -285,7 +287,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TomTests/Pods-TomTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E4ED27C76D5F3F23B6C310D /* [CP] Check Pods Manifest.lock */ = {
@@ -330,7 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tom/Pods-Tom-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hero/Pods-Hero-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -340,12 +342,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF7B0C101D6F012000245928 /* PressureAlertEvent.swift in Sources */,
-				DF22E3361D6EDC380005ABAE /* PressurePeripheral.swift in Sources */,
-				DF22E3381D6EDD050005ABAE /* PressureMeasurment.swift in Sources */,
-				DF22E3161D6D78EA0005ABAE /* MonitorViewController.swift in Sources */,
-				DF22E3141D6D78EA0005ABAE /* AppDelegate.swift in Sources */,
-				DF22E3341D6D82A90005ABAE /* BleManager.swift in Sources */,
+				DF72E65B1D6F0F430074D064 /* AppDelegate.swift in Sources */,
+				DF72E6631D6F0F430074D064 /* PressureMeasurment.swift in Sources */,
+				DF72E6641D6F0F430074D064 /* PressurePeripheral.swift in Sources */,
+				DF72E6611D6F0F430074D064 /* MonitorViewController.swift in Sources */,
+				DF72E6621D6F0F430074D064 /* PressureAlertEvent.swift in Sources */,
+				DF72E65F1D6F0F430074D064 /* BleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF22E33A1D6EEBE40005ABAE /* PressureMeasurementTests.swift in Sources */,
+				DF72E66B1D6F0F550074D064 /* PressureMeasurementTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,26 +364,26 @@
 /* Begin PBXTargetDependency section */
 		DF22E3261D6D78EA0005ABAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DF22E30F1D6D78EA0005ABAE /* Tom */;
+			target = DF22E30F1D6D78EA0005ABAE /* Hero */;
 			targetProxy = DF22E3251D6D78EA0005ABAE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DF22E3171D6D78EA0005ABAE /* Main.storyboard */ = {
+		DF72E6501D6F0F430074D064 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF22E3181D6D78EA0005ABAE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF22E31D1D6D78EA0005ABAE /* Base */,
+				DF72E6511D6F0F430074D064 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DF72E6521D6F0F430074D064 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF72E6531D6F0F430074D064 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -474,58 +476,58 @@
 		};
 		DF22E32E1D6D78EA0005ABAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21CA7B2D22F0B323D7EC3823 /* Pods-Tom.debug.xcconfig */;
+			baseConfigurationReference = 5EC4FD010939FA2023FE2831 /* Pods-Hero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Tom/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Hero/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.tom.Tom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.hero;
+				PRODUCT_NAME = Hero;
 			};
 			name = Debug;
 		};
 		DF22E32F1D6D78EA0005ABAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E25030868666D983461386A /* Pods-Tom.release.xcconfig */;
+			baseConfigurationReference = E6A4C9C1BC78115C16AF485B /* Pods-Hero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Tom/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Hero/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.tom.Tom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.hero;
+				PRODUCT_NAME = Hero;
 			};
 			name = Release;
 		};
 		DF22E3311D6D78EA0005ABAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EEB77094FEF3C92CB07FE62 /* Pods-TomTests.debug.xcconfig */;
+			baseConfigurationReference = E07381ED0587E3EA1CCF18AC /* Pods-HeroTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TomTests/Info.plist;
+				INFOPLIST_FILE = HeroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.tom.TomTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tom.app/Tom";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.tom.HeroTests;
+				PRODUCT_NAME = Hero;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hero.app/Hero";
 			};
 			name = Debug;
 		};
 		DF22E3321D6D78EA0005ABAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5773F654851B5174F1E02394 /* Pods-TomTests.release.xcconfig */;
+			baseConfigurationReference = 94B3F9F4860AEAE0CA53AA93 /* Pods-HeroTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TomTests/Info.plist;
+				INFOPLIST_FILE = HeroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.tom.TomTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tom.app/Tom";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixandbyte.tom.HeroTests;
+				PRODUCT_NAME = Hero;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hero.app/Hero";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF22E30B1D6D78EA0005ABAE /* Build configuration list for PBXProject "Tom" */ = {
+		DF22E30B1D6D78EA0005ABAE /* Build configuration list for PBXProject "Hero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF22E32B1D6D78EA0005ABAE /* Debug */,
@@ -534,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF22E32D1D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "Tom" */ = {
+		DF22E32D1D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "Hero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF22E32E1D6D78EA0005ABAE /* Debug */,
@@ -543,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF22E3301D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "TomTests" */ = {
+		DF22E3301D6D78EA0005ABAE /* Build configuration list for PBXNativeTarget "HeroTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF22E3311D6D78EA0005ABAE /* Debug */,
