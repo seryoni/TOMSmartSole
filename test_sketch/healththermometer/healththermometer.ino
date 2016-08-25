@@ -28,6 +28,9 @@
 #include "Adafruit_BluefruitLE_UART.h"
 #include "Adafruit_BLEGatt.h"
 
+#include "Adafruit_BLEBattery.h"
+#define VBATPIN A9
+
 #include "BluefruitConfig.h"
 
 #include "IEEE11073float.h"
@@ -52,6 +55,7 @@ Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_
 //                             BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
 Adafruit_BLEGatt gatt(ble);
+Adafruit_BLEBattery battery(ble);
 
 // A small helper
 void error(const __FlashStringHelper*err) {
@@ -113,8 +117,8 @@ void setup(void)
   /* Service ID should be 1 */
   Serial.println(F("Adding the Health Thermometer Service definition (UUID = 0x1809): "));
 
-  // Custom service: 0x2209
-  htsServiceId = gatt.addService(0x1809);
+  // Custom service: 0x1809
+  htsServiceId = gatt.addService(0x2809);
   if (htsServiceId == 0) {
     error(F("Could not add Thermometer service"));
   }
@@ -138,6 +142,32 @@ void setup(void)
   ble.reset();
 
   Serial.println();
+
+  battery.begin(true);
+}
+
+void battery_check(){
+
+float measuredvbat = analogRead(VBATPIN);
+measuredvbat *= 2;    // we divided by 2, so multiply back
+measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
+measuredvbat /= 1024; // convert to voltage
+ble.print("VBat: " );
+ble.println(measuredvbat);
+
+measuredvbat=measuredvbat*100.0;
+
+int bat_precentage = (int) measuredvbat;
+Serial.println(bat_precentage);
+bat_precentage=map(bat_precentage,330,420,0,100);
+bat_precentage=constrain(bat_precentage,0,100);
+
+//ble.print("Bat: " );
+//ble.print(bat_precentage);
+ //ble.println("%");
+
+battery.update(bat_precentage);
+  
 }
 
 /** Send randomized heart rate data continuously **/
@@ -159,6 +189,8 @@ void loop(void)
     // TODO temperature is not correct due to Bluetooth use IEEE-11073 format
     gatt.setChar(htsMeasureCharId, temp_measurement, 5);
   }
+
+  battery_check();
   
   /* Delay before next measurement update */
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)

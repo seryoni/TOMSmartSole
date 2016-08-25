@@ -148,7 +148,7 @@ digitalWrite(on_led,HIGH);
   /* Add the Heart Rate Service definition */
   /* Service ID should be 1 */
   Serial.println(F("Adding the Health Thermometer Service definition (UUID = 0x1809): "));
-  htsServiceId = gatt.addService(0x1809);
+  htsServiceId = gatt.addService(0x2809);
   if (htsServiceId == 0) {
     error(F("Could not add Thermometer service"));
   }

@@ -43,7 +43,7 @@ class MonitorViewController: UIViewController {
     func startMonitorBattery() {
         guard let periphral = bleManager.peripheral else { return }
         periphral.addBatteryLevelObserver({ (level: UInt, error: NSError?) in
-            if let error = error  {
+            if let _ = error  {
                 return
             }
             self.batteryPercentageLabel.text = String(level)
