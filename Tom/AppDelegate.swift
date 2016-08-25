@@ -9,6 +9,7 @@
 import UIKit
 import CocoaLumberjack
 import RZBluetooth
+import TSMessages
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,12 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupLogger()
         
         DDLogInfo("\n=====  App Launch ====\n")
-        print("aaa")
         
         bleManager = BleManager()
         
         guard
-            let rootVC = window?.rootViewController as? ViewController
+            let rootVC = window?.rootViewController as? MonitorViewController
             else
         {
             fatalError()
@@ -58,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         DDLogInfo("applicationDidBecomeActive")
+        
+        self.registerForNotifications()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -86,5 +88,34 @@ extension AppDelegate {
         let fileLogger = DDFileLogger(logFileManager: DDLogFileManagerDefault())
         DDLog.addLogger(fileLogger)
         //SendLogsController.fileLogger = fileLogger
+    }
+}
+
+// MARK: handle notifications registration
+
+extension AppDelegate {
+    func registerForNotifications() {
+        let settings = UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        DDLogInfo("user notification regsitered")
+        
+        // Uncomment for handling remote push
+        //UIApplication.sharedApplication().registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        DDLogInfo("remote notification registered.")
+        //Intercom.setDeviceToken(deviceToken)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        DDLogError("Failed to register for remote notifications. error: \(error.localizedDescription)");
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        DDLogInfo("didReceiveLocalNotification")
     }
 }

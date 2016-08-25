@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Monitor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MonitorViewController" customModule="Tom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,23 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-hi-tgu">
-                                <rect key="frame" x="20" y="20" width="113" height="30"/>
-                                <state key="normal" title="Start Scanning"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yg-fB-BXF">
+                                <rect key="frame" x="285" y="263.5" width="52" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-hi-tgu">
+                                <rect key="frame" x="270.5" y="550" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
                                 <connections>
                                     <action selector="startScanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCb-F5-yBM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7yg-fB-BXF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7h0-0x-qmX"/>
+                            <constraint firstItem="7yg-fB-BXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SHU-5f-wq4"/>
+                            <constraint firstItem="i6d-hi-tgu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U0S-AQ-gbb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i6d-hi-tgu" secondAttribute="bottom" constant="20" id="m44-zA-lHl"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="measurmentLabel" destination="7yg-fB-BXF" id="m9S-ex-Knb"/>
                         <outlet property="startScanButton" destination="i6d-hi-tgu" id="A2d-Bg-1tb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="389"/>
+            <point key="canvasLocation" x="251" y="385"/>
         </scene>
     </scenes>
 </document>

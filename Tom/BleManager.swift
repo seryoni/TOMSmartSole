@@ -13,6 +13,8 @@ import CocoaLumberjack
 class BleManager {
     var centralManager: RZBCentralManager!
     
+    var onMeasurementChange: ((value: Double) -> Void)?
+    
     init () {
         centralManager = RZBCentralManager(identifier: "tom", queue: nil)
         setup()
@@ -33,7 +35,8 @@ class BleManager {
     
     func scanForPeripherals() {
         DDLogInfo("BleManager: scanForPeripherals")
-        centralManager.scanForPeripheralsWithServices([CBUUID.rzb_UUIDForHeartRateService()], options: nil) { scanInfo, error in
+        let serviceUUID = PressureProfile.Service.cbUUID
+        centralManager.scanForPeripheralsWithServices([serviceUUID], options: nil) { scanInfo, error in
             guard let peripheral = scanInfo?.peripheral else {
                 DDLogError("BleManager:scanForPeripherals: ERROR: \(error!)")
                 return
@@ -44,12 +47,39 @@ class BleManager {
     }
     
     func startMonitor(peripheral: RZBPeripheral) {
+        DDLogInfo("BleManager: startMonitor: PressureMeasurment")
+        peripheral.maintainConnection = true
+        
+        let pressurePeriphral = PressurePeripheral(peripheral: peripheral)
+        
+        pressurePeriphral.addPressureObserver({ (measurment: PressureMeasurment?, error: NSError?) in
+            guard let pressure = measurment?.pressure else { return }
+            DDLogInfo("BleManager: PressureMeasurment: \(pressure)")
+            
+            if let onMeasurementChange = self.onMeasurementChange {
+                onMeasurementChange(value:Double(pressure))
+            }
+            
+            let event = PressureAlertEvent() //(pressure: Int(pressure))
+            DDLogInfo("ALERT: \(event)")
+            event.scheduleNotification()
+            
+            }) { (error) in
+                guard let error = error else { return }
+                DDLogError("BleManager:startMonitor: ERROR: \(error)")
+        }
+    }
+    
+    func startHRMMonitor(peripheral: RZBPeripheral) {
         DDLogInfo("BleManager: startMonitor")
         peripheral.maintainConnection = true
         
         peripheral.addHeartRateObserver({ measurement, error in
             guard let heartRate = measurement?.heartRate else { return }
             DDLogInfo("BleManager: HEART RATE: \(heartRate)")
+            if let onMeasurementChange = self.onMeasurementChange {
+                onMeasurementChange(value:Double(heartRate))
+            }
             }, completion: { error in
                 guard let error = error else { return }
                 DDLogError("BleManager:startMonitor: ERROR: \(error)")

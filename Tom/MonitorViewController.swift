@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MonitorViewController.swift
 //  Tom
 //
 //  Created by Nissan Tsafrir on 24.8.2016.
@@ -9,15 +9,21 @@
 import UIKit
 import RZBluetooth
 
-class ViewController: UIViewController {
+class MonitorViewController: UIViewController {
 
     @IBOutlet weak var startScanButton: UIButton!
+    
+    @IBOutlet weak var measurmentLabel: UILabel!
     
     var bleManager: BleManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        bleManager.onMeasurementChange = { value in
+            self.measurmentLabel.text = String(value)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,5 +34,6 @@ class ViewController: UIViewController {
     @IBAction func startScanAction(sender: AnyObject) {
         bleManager.scanForPeripherals()
     }
+    
 }
 

@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		35002C92F06CD59BBD9E8080 /* Pods_TomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2590E9CCA079F870A7845C8E /* Pods_TomTests.framework */; };
 		DF22E3141D6D78EA0005ABAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */; };
-		DF22E3161D6D78EA0005ABAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3151D6D78EA0005ABAE /* ViewController.swift */; };
+		DF22E3161D6D78EA0005ABAE /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3151D6D78EA0005ABAE /* MonitorViewController.swift */; };
 		DF22E3191D6D78EA0005ABAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF22E3171D6D78EA0005ABAE /* Main.storyboard */; };
 		DF22E31B1D6D78EA0005ABAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */; };
 		DF22E31E1D6D78EA0005ABAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */; };
-		DF22E3291D6D78EA0005ABAE /* TomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3281D6D78EA0005ABAE /* TomTests.swift */; };
 		DF22E3341D6D82A90005ABAE /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3331D6D82A90005ABAE /* BleManager.swift */; };
+		DF22E3361D6EDC380005ABAE /* PressurePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3351D6EDC380005ABAE /* PressurePeripheral.swift */; };
+		DF22E3381D6EDD050005ABAE /* PressureMeasurment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3371D6EDD050005ABAE /* PressureMeasurment.swift */; };
+		DF22E33A1D6EEBE40005ABAE /* PressureMeasurementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22E3391D6EEBE40005ABAE /* PressureMeasurementTests.swift */; };
+		DF7B0C101D6F012000245928 /* PressureAlertEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B0C0F1D6F012000245928 /* PressureAlertEvent.swift */; };
 		ECD185E9A102B05385B73B96 /* Pods_Tom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F786DD5740266BA24FE8F48 /* Pods_Tom.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,15 +40,18 @@
 		9F786DD5740266BA24FE8F48 /* Pods_Tom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF22E3101D6D78EA0005ABAE /* Tom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF22E3151D6D78EA0005ABAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF22E3151D6D78EA0005ABAE /* MonitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
 		DF22E3181D6D78EA0005ABAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF22E31D1D6D78EA0005ABAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF22E31F1D6D78EA0005ABAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF22E3241D6D78EA0005ABAE /* TomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF22E3281D6D78EA0005ABAE /* TomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomTests.swift; sourceTree = "<group>"; };
 		DF22E32A1D6D78EA0005ABAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF22E3331D6D82A90005ABAE /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
+		DF22E3351D6EDC380005ABAE /* PressurePeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressurePeripheral.swift; sourceTree = "<group>"; };
+		DF22E3371D6EDD050005ABAE /* PressureMeasurment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurment.swift; sourceTree = "<group>"; };
+		DF22E3391D6EEBE40005ABAE /* PressureMeasurementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureMeasurementTests.swift; sourceTree = "<group>"; };
+		DF7B0C0F1D6F012000245928 /* PressureAlertEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressureAlertEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				DF22E3131D6D78EA0005ABAE /* AppDelegate.swift */,
-				DF22E3151D6D78EA0005ABAE /* ViewController.swift */,
+				DF22E3151D6D78EA0005ABAE /* MonitorViewController.swift */,
 				DF22E3331D6D82A90005ABAE /* BleManager.swift */,
+				DF22E3371D6EDD050005ABAE /* PressureMeasurment.swift */,
+				DF22E3351D6EDC380005ABAE /* PressurePeripheral.swift */,
+				DF7B0C0F1D6F012000245928 /* PressureAlertEvent.swift */,
 				DF22E3171D6D78EA0005ABAE /* Main.storyboard */,
 				DF22E31A1D6D78EA0005ABAE /* Assets.xcassets */,
 				DF22E31C1D6D78EA0005ABAE /* LaunchScreen.storyboard */,
@@ -125,8 +134,8 @@
 		DF22E3271D6D78EA0005ABAE /* TomTests */ = {
 			isa = PBXGroup;
 			children = (
-				DF22E3281D6D78EA0005ABAE /* TomTests.swift */,
 				DF22E32A1D6D78EA0005ABAE /* Info.plist */,
+				DF22E3391D6EEBE40005ABAE /* PressureMeasurementTests.swift */,
 			);
 			path = TomTests;
 			sourceTree = "<group>";
@@ -331,7 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF22E3161D6D78EA0005ABAE /* ViewController.swift in Sources */,
+				DF7B0C101D6F012000245928 /* PressureAlertEvent.swift in Sources */,
+				DF22E3361D6EDC380005ABAE /* PressurePeripheral.swift in Sources */,
+				DF22E3381D6EDD050005ABAE /* PressureMeasurment.swift in Sources */,
+				DF22E3161D6D78EA0005ABAE /* MonitorViewController.swift in Sources */,
 				DF22E3141D6D78EA0005ABAE /* AppDelegate.swift in Sources */,
 				DF22E3341D6D82A90005ABAE /* BleManager.swift in Sources */,
 			);
@@ -341,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF22E3291D6D78EA0005ABAE /* TomTests.swift in Sources */,
+				DF22E33A1D6EEBE40005ABAE /* PressureMeasurementTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

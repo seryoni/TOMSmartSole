@@ -21,6 +21,7 @@ target 'Tom' do
     pod 'Crashlytics'
 	#pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git' #, :commit => '2e117e3'	
 	pod 'RZBluetooth'
+	pod 'TSMessages'
 	
   target 'TomTests' do
     inherit! :search_paths

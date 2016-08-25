@@ -9,12 +9,15 @@ PODS:
   - Crashlytics (3.7.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
+  - HexColors (2.2.1)
   - Nimble (4.1.0)
   - Observable-Swift (0.6.0)
   - Quick (0.9.2)
   - RZBluetooth (1.0.2):
     - RZBluetooth/Core (= 1.0.2)
   - RZBluetooth/Core (1.0.2)
+  - TSMessages (0.9.12):
+    - HexColors (~> 2.2.0)
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
@@ -24,16 +27,19 @@ DEPENDENCIES:
   - Observable-Swift
   - Quick (~> 0.9)
   - RZBluetooth
+  - TSMessages
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
   Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
   Observable-Swift: c63b9fc990703b135450cb5bd3541022384867ae
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
   RZBluetooth: a243c1c6d400f63f7605c214d47d44b25a12b8e9
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
 
-PODFILE CHECKSUM: beb3d4db3a80fbe3b7481a3f98789c6e5ed15201
+PODFILE CHECKSUM: 45b6edba957936e0ec1aa29d98b43d154a6c12cc
 
 COCOAPODS: 1.0.1
