@@ -22,7 +22,8 @@ target 'Hero' do
 	#pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git' #, :commit => '2e117e3'	
 	pod 'RZBluetooth'
 	pod 'TSMessages'
-	
+	pod 'GradientView'
+    
   target 'HeroTests' do
     inherit! :search_paths
     # Pods for testing

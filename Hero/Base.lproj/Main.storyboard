@@ -18,32 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yg-fB-BXF">
-                                <rect key="frame" x="274" y="263" width="52" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-hi-tgu">
-                                <rect key="frame" x="270" y="550" width="59" height="30"/>
-                                <state key="normal" title="Connect"/>
-                                <connections>
-                                    <action selector="startScanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCb-F5-yBM"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-HU-p1F">
-                                <rect key="frame" x="20" y="559" width="97" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-HU-p1F">
+                                <rect key="frame" x="20" y="555" width="98" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZN-Mr-bLa">
-                                        <rect key="frame" x="0.0" y="0.0" width="61" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="21"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-7a-7OD">
-                                        <rect key="frame" x="69" y="0.0" width="29" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMG-7a-7OD">
+                                        <rect key="frame" x="68" y="0.0" width="30" height="21"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -51,26 +38,71 @@
                                     <constraint firstAttribute="height" constant="21" id="dVl-rp-mht"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-cF-ahS">
+                                <rect key="frame" x="502" y="550" width="78" height="30"/>
+                                <state key="normal" title="Disconnect"/>
+                                <connections>
+                                    <action selector="disconnectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ni3-jr-b6W"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvo-pn-BdC">
+                                <rect key="frame" x="20" y="130" width="560" height="219"/>
+                                <string key="text" base64-UTF8="YES">
+IAogCiAKIA
+</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6d-hi-tgu">
+                                <rect key="frame" x="521" y="550" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="startScanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCb-F5-yBM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNn-rn-xLa">
+                                <rect key="frame" x="256.5" y="44" width="88" height="53.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="39"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yg-fB-BXF">
+                                <rect key="frame" x="274" y="414" width="52" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7yg-fB-BXF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7h0-0x-qmX"/>
+                            <constraint firstItem="Yvo-pn-BdC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-60.75" id="4Kw-E2-gO8"/>
+                            <constraint firstItem="i6d-hi-tgu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="72B-UZ-lpL"/>
+                            <constraint firstItem="wNn-rn-xLa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="7aR-rs-mRM"/>
+                            <constraint firstItem="7yg-fB-BXF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="150" id="7h0-0x-qmX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2UO-HU-p1F" secondAttribute="bottom" constant="24" id="80j-pv-ss1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bSb-cF-ahS" secondAttribute="bottom" constant="20" id="Dkh-eE-ETe"/>
+                            <constraint firstItem="Yvo-pn-BdC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Gjz-4e-3TJ"/>
                             <constraint firstItem="7yg-fB-BXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SHU-5f-wq4"/>
-                            <constraint firstItem="i6d-hi-tgu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U0S-AQ-gbb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yvo-pn-BdC" secondAttribute="trailing" id="XZQ-3Z-T6S"/>
+                            <constraint firstItem="Yvo-pn-BdC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zox-Eb-YsT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i6d-hi-tgu" secondAttribute="bottom" constant="20" id="m44-zA-lHl"/>
+                            <constraint firstItem="bSb-cF-ahS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pPw-tw-1Q2"/>
                             <constraint firstItem="2UO-HU-p1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sOm-0R-V6b"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2UO-HU-p1F" secondAttribute="bottom" constant="20" id="vGy-8e-Oa2"/>
+                            <constraint firstItem="wNn-rn-xLa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tNB-yn-cbb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alertLabel" destination="Yvo-pn-BdC" id="7jr-ip-xWK"/>
                         <outlet property="batteryPercentageLabel" destination="yMG-7a-7OD" id="xAf-5E-Uf9"/>
+                        <outlet property="disconnectButton" destination="bSb-cF-ahS" id="kT6-lL-gLx"/>
                         <outlet property="measurmentLabel" destination="7yg-fB-BXF" id="m9S-ex-Knb"/>
                         <outlet property="startScanButton" destination="i6d-hi-tgu" id="A2d-Bg-1tb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251" y="385"/>
+            <point key="canvasLocation" x="322" y="384"/>
         </scene>
     </scenes>
 </document>

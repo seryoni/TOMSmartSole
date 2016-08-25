@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack/CocoaLumberjack.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GradientView/GradientView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HexColors/HexColors.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Observable-Swift/Observable.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RZBluetooth/RZBluetooth.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack/CocoaLumberjack.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GradientView/GradientView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HexColors/HexColors.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Observable-Swift/Observable.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RZBluetooth/RZBluetooth.framework"

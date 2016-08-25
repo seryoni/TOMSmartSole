@@ -38,9 +38,17 @@ extension RZBPeripheralStateEvent {
 
 class BleManager: NSObject {
     
+    var eventsStore = EventsStore()
+    
     var centralManager: RZBCentralManager!
     
     var onMeasurementChange: ((value: Double) -> Void)?
+    
+    var onDidConnectToDevice: (() -> Void)?
+    
+    var onDidDisconnectedToDevice: (() -> Void)?
+    
+    var onErrorClosure: ((errorMessage: String) -> Void)?
     
     weak var peripheral: RZBPeripheral?
     
@@ -89,15 +97,17 @@ class BleManager: NSObject {
             nsUUID = NSUUID(UUIDString: device.UUID) {
             
             let peripheral = centralManager.peripheralForUUID(nsUUID)
-            peripheral.connectWithCompletion({ (error: NSError?) in
+            peripheral.connectWithCompletion({ [weak self] (error: NSError?) in
+                guard let me = self else { return }
                 if let error = error {
                     DDLogError("connectWithCompletion: \(error)")
-                    self.scanForPeripherals()
+                    me.notifyOnError("connection error: \(error.localizedDescription)")
+                    me.scanForPeripherals()
                     return
                 }
                 
                 // reconnect to known device
-                self.handleConnectedToPeripheral(peripheral)
+                me.handleConnectedToPeripheral(peripheral)
             })
         }
     }
@@ -108,6 +118,7 @@ class BleManager: NSObject {
         centralManager.scanForPeripheralsWithServices([serviceUUID], options: nil) { scanInfo, error in
             guard let peripheral: RZBPeripheral = scanInfo?.peripheral else {
                 DDLogError("BleManager:scanForPeripherals: ERROR: \(error!)")
+                self.notifyOnError("scanForPeripherals error: \(error?.localizedDescription ?? "")")
                 return
             }
             
@@ -124,6 +135,8 @@ class BleManager: NSObject {
     }
     
     func startMonitor(peripheral: RZBPeripheral) {
+        notifyOnDidConnect()
+        
         DDLogInfo("BleManager: startMonitor: PressureMeasurment")
         peripheral.maintainConnection = true
         
@@ -132,39 +145,66 @@ class BleManager: NSObject {
         let pressurePeriphral = PressurePeripheral(peripheral: peripheral)
         self.pressurePeriphral = pressurePeriphral
         
-        pressurePeriphral.addPressureObserver({ (measurment: PressureMeasurment?, error: NSError?) in
+        pressurePeriphral.addPressureObserver({ [weak self] (measurment: PressureMeasurment?, error: NSError?) in
+            guard let me = self else { return }
+            
             guard let pressure = measurment?.pressure else { return }
             DDLogInfo("BleManager: PressureMeasurment: \(pressure)")
             
-            if let onMeasurementChange = self.onMeasurementChange {
+            if let onMeasurementChange = me.onMeasurementChange {
                 onMeasurementChange(value:Double(pressure))
             }
             
             let event = PressureAlertEvent() //(pressure: Int(pressure))
             DDLogInfo("ALERT: \(event)")
             event.scheduleNotification()
+            me.eventsStore.addItem(event)
             
             }) { (error) in
                 guard let error = error else { return }
                 DDLogError("BleManager:startMonitor: ERROR: \(error)")
+                self.reconnect()
         }
         
         peripheral.connectionDelegate = self
     }
+
+    func reconnect() {
+        if let _ = peripheral {
+            disconnect(forgetDevice: false)
+        }
+    }
+//
+//    func startHRMMonitor(peripheral: RZBPeripheral) {
+//        DDLogInfo("BleManager: startMonitor")
+//        peripheral.maintainConnection = true
+//        
+//        peripheral.addHeartRateObserver({ measurement, error in
+//            guard let heartRate = measurement?.heartRate else { return }
+//            DDLogInfo("BleManager: HEART RATE: \(heartRate)")
+//            if let onMeasurementChange = self.onMeasurementChange {
+//                onMeasurementChange(value:Double(heartRate))
+//            }
+//            }, completion: { error in
+//                guard let error = error else { return }
+//                DDLogError("BleManager:startMonitor: ERROR: \(error)")
+//        })
+//    }
     
-    func startHRMMonitor(peripheral: RZBPeripheral) {
-        DDLogInfo("BleManager: startMonitor")
-        peripheral.maintainConnection = true
+    func disconnect(forgetDevice forgetDevice: Bool = true) {
+        if let currentDevice = CurrentDevice.currentDevice() where forgetDevice {
+            DDLogInfo("restorationHandler: currentDevice \(currentDevice.UUID)")
+            currentDevice.clear()
+        }
         
-        peripheral.addHeartRateObserver({ measurement, error in
-            guard let heartRate = measurement?.heartRate else { return }
-            DDLogInfo("BleManager: HEART RATE: \(heartRate)")
-            if let onMeasurementChange = self.onMeasurementChange {
-                onMeasurementChange(value:Double(heartRate))
+        peripheral?.cancelConnectionWithCompletion({ (error: NSError?) in
+            if let error = error {
+                DDLogError("error: \(error)")
+                self.notifyOnError("connection error: \(error.localizedDescription)")
+                return
             }
-            }, completion: { error in
-                guard let error = error else { return }
-                DDLogError("BleManager:startMonitor: ERROR: \(error)")
+            DDLogInfo("Disconnected successfully")
+            self.notifyOnDisconnect()
         })
     }
 }
@@ -173,7 +213,6 @@ extension BleManager: RZBPeripheralConnectionDelegate {
     func peripheral(peripheral: RZBPeripheral, connectionEvent event: RZBPeripheralStateEvent, error: NSError?) {
         if let error = error {
             DDLogError("peripheral: connectionEvent - error:\(error)")
-            
             return
         }
         
@@ -182,11 +221,33 @@ extension BleManager: RZBPeripheralConnectionDelegate {
         switch event {
         case .ConnectSuccess:
             DDLogInfo("ConnectSuccess")
+            notifyOnDidConnect()
         case .ConnectFailure:
             DDLogInfo("ConnectFailure")
             //peripheral.
+            notifyOnDisconnect()
         case .Disconnected:
             DDLogInfo("Disconnected")
+            notifyOnDisconnect()
+        }
+    }
+    
+    func notifyOnDidConnect() {
+        if let onDidConnectToDevice = onDidConnectToDevice {
+            onDidConnectToDevice()
+        }
+    }
+    
+    func notifyOnDisconnect() {
+        if let onDidDisconnectedToDevice = onDidDisconnectedToDevice {
+            onDidDisconnectedToDevice()
+        }
+    }
+    
+    
+    func notifyOnError(errorMessage: String) {
+        if let onErrorClosure = onErrorClosure {
+            onErrorClosure(errorMessage: errorMessage)
         }
     }
 }

@@ -9,6 +9,7 @@ PODS:
   - Crashlytics (3.7.2):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
+  - GradientView (2.1.0)
   - HexColors (2.2.1)
   - Nimble (4.1.0)
   - Observable-Swift (0.6.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - CocoaLumberjack/Swift
   - Crashlytics
   - Fabric
+  - GradientView
   - Nimble (~> 4.0)
   - Observable-Swift
   - Quick (~> 0.9)
@@ -33,6 +35,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  GradientView: 4a961b8e9e1787beaf6880b9fc2dd08c6345533d
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
   Observable-Swift: c63b9fc990703b135450cb5bd3541022384867ae
@@ -40,6 +43,6 @@ SPEC CHECKSUMS:
   RZBluetooth: a243c1c6d400f63f7605c214d47d44b25a12b8e9
   TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
 
-PODFILE CHECKSUM: d639532ba15bbb186ffafc195378a739d7ce1b57
+PODFILE CHECKSUM: 703b0874be776bf25d31fc42827d80206c432514
 
 COCOAPODS: 1.0.1

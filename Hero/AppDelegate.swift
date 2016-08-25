@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DDLogInfo("\n=====  App Launch ====\n")
         
+        TSMessage.addCustomDesignFromFileWithName("TSMessagesDefaultDesign.json")
+        
         bleManager = BleManager()
         
         guard
@@ -60,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DDLogInfo("applicationDidBecomeActive")
         
         self.registerForNotifications()
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -117,5 +121,11 @@ extension AppDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         DDLogInfo("didReceiveLocalNotification")
+        
+        let title = notification.alertTitle ?? ""
+        let subtitle = notification.alertBody ?? ""
+        
+        TSMessage.dismissActiveNotification()
+        TSMessage.showNotificationWithTitle(title, subtitle: subtitle, type: TSMessageNotificationType.Message)        
     }
 }
