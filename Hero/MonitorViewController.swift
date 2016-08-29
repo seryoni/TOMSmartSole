@@ -3,7 +3,6 @@
 //  Hero
 //
 //  Created by Nissan Tsafrir on 24.8.2016.
-//  Copyright © 2016 Pix & Byte. All rights reserved.
 //
 
 import UIKit
@@ -110,10 +109,12 @@ class MonitorViewController: UIViewController {
             if let _ = error  {
                 return
             }
-            self.batteryPercentageLabel.text = "String(level)%"
-            }) { (error) in
-                DDLogError("battery observer error: \(error)")
-        }
+            self.updateBatteryState(level)
+            }, completion: { DDLogError("battery observer error: \($0)") })
+    }
+    
+    private func updateBatteryState(level: UInt) {
+        self.batteryPercentageLabel.text = "\(String(level))%"
     }
     
     func appDidBecomeActive() {

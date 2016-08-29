@@ -3,7 +3,6 @@
 //  Hero
 //
 //  Created by Nissan Tsafrir on 24/08/2016.
-//  Copyright © 2016 Pix & Byte. All rights reserved.
 //
 
 import Foundation

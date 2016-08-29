@@ -18,7 +18,6 @@
 		DF72E6621D6F0F430074D064 /* PressureAlertEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6581D6F0F430074D064 /* PressureAlertEvent.swift */; };
 		DF72E6631D6F0F430074D064 /* PressureMeasurment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6591D6F0F430074D064 /* PressureMeasurment.swift */; };
 		DF72E6641D6F0F430074D064 /* PressurePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E65A1D6F0F430074D064 /* PressurePeripheral.swift */; };
-		DF72E66A1D6F0F550074D064 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF72E6661D6F0F4D0074D064 /* Info.plist */; };
 		DF72E66B1D6F0F550074D064 /* PressureMeasurementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E6671D6F0F4D0074D064 /* PressureMeasurementTests.swift */; };
 		DF72E66D1D6F1BB40074D064 /* CurrentDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E66C1D6F1BB40074D064 /* CurrentDevice.swift */; };
 		DF72E6701D6F2F2E0074D064 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72E66F1D6F2F2E0074D064 /* StyleKit.swift */; };
@@ -275,7 +274,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF72E66A1D6F0F550074D064 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
