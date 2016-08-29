@@ -17,7 +17,7 @@
     required with UART to slow down data sent to the Bluefruit LE!  
 */
 
-#include <CountUpDownTimer.h>
+#include<CountUpDownTimer.h>
 
 #include <Arduino.h>
 #include <SPI.h>
@@ -38,33 +38,34 @@
 #define VBATPIN A9
 
 
-//// Create the bluefruit object, either software serial...uncomment these lines
-//
-//SoftwareSerial bluefruitSS = SoftwareSerial(BLUEFRUIT_SWUART_TXD_PIN, BLUEFRUIT_SWUART_RXD_PIN);
-//
-//Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
-//                      BLUEFRUIT_UART_CTS_PIN, BLUEFRUIT_UART_RTS_PIN);
 
+// Create the bluefruit object, either software serial...uncomment these lines
+/*
+SoftwareSerial bluefruitSS = SoftwareSerial(BLUEFRUIT_SWUART_TXD_PIN, BLUEFRUIT_SWUART_RXD_PIN);
 
-//// ...or hardware serial, which does not need the RTS/CTS pins. Uncomment this line
+Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
+                      BLUEFRUIT_UART_CTS_PIN, BLUEFRUIT_UART_RTS_PIN);
+*/
+
+/* ...or hardware serial, which does not need the RTS/CTS pins. Uncomment this line */
 // Adafruit_BluefruitLE_UART ble(BLUEFRUIT_HWSERIAL_NAME, BLUEFRUIT_UART_MODE_PIN);
 
-///...hardware SPI, using SCK/MOSI/MISO hardware SPI pins and then user selected CS/IRQ/RST
-    Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
+/* ...hardware SPI, using SCK/MOSI/MISO hardware SPI pins and then user selected CS/IRQ/RST */
+Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
-/// ...software SPI, using SCK/MOSI/MISO user-defined SPI pins and then user selected CS/IRQ/RST
+/* ...software SPI, using SCK/MOSI/MISO user-defined SPI pins and then user selected CS/IRQ/RST */
 //Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_SCK, BLUEFRUIT_SPI_MISO,
 //                             BLUEFRUIT_SPI_MOSI, BLUEFRUIT_SPI_CS,
 //                             BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
-    Adafruit_BLEGatt gatt(ble);
-    Adafruit_BLEBattery battery(ble);
+Adafruit_BLEGatt gatt(ble);
+Adafruit_BLEBattery battery(ble);
 
 // A small helper
-    void error(const __FlashStringHelper*err) {
-      Serial.println(err);
-      while (1);
-    }
+void error(const __FlashStringHelper*err) {
+  Serial.println(err);
+  while (1);
+}
 
 /* The service information */
 
@@ -83,11 +84,11 @@ int buzzer = 12;
 
 uint16_t temp_16;
 
-int temp = 0;
+  int temp = 0;
 
-double temp_d=0.0;
+  double temp_d=0.0;
 
-uint8_t temp_measurement [5] = { bit(0) };
+  uint8_t temp_measurement [5] = { bit(0) };
 
 void buzzer_alarm1();
 
@@ -102,11 +103,11 @@ void setup(void)
  // while (!Serial); // required for Flora & Micro
   //delay(500);
 
-  pinMode(buzzer,OUTPUT);
-  pinMode(on_led,OUTPUT);
-  pinMode(ble_led, OUTPUT);
+pinMode(buzzer,OUTPUT);
+pinMode(on_led,OUTPUT);
+pinMode(ble_led, OUTPUT);
 
-  digitalWrite(on_led,HIGH);
+digitalWrite(on_led,HIGH);
   T.SetStopTime(1,0,0); 
   T.StartTimer();
 
@@ -130,15 +131,15 @@ void setup(void)
   /* Perform a factory reset to make sure everything is in a known state */
   Serial.println(F("Performing a factory reset: "));
   if (! ble.factoryReset() ){
-   error(F("Couldn't factory reset"));
- }
+       error(F("Couldn't factory reset"));
+  }
 
   /* Disable command echo from Bluefruit */
- ble.echo(false);
+  ble.echo(false);
 
- Serial.println("Requesting Bluefruit info:");
+  Serial.println("Requesting Bluefruit info:");
   /* Print Bluefruit information */
- ble.info();
+  ble.info();
 
   // this line is particularly required for Flora, but is a good idea
   // anyways for the super long lines ahead!
@@ -146,33 +147,34 @@ void setup(void)
 
   /* Add the Heart Rate Service definition */
   /* Service ID should be 1 */
- Serial.println(F("Adding the Health Thermometer Service definition (UUID = 0x1809): "));
- htsServiceId = gatt.addService(0x1809);
- if (htsServiceId == 0) {
-  error(F("Could not add Thermometer service"));
-}
-
+  Serial.println(F("Adding the Health Thermometer Service definition (UUID = 0x1809): "));
+  //htsServiceId = gatt.addService(0x1809);
+  htsServiceId = gatt.addService(0x1809);
+  if (htsServiceId == 0) {
+    error(F("Could not add Thermometer service"));
+  }
+  
   /* Add the Temperature Measurement characteristic which is composed of
    * 1 byte flags + 4 float */
   /* Chars ID for Measurement should be 1 */
-Serial.println(F("Adding the Temperature Measurement characteristic (UUID = 0x2A1C): "));
-htsMeasureCharId = gatt.addCharacteristic(0x2A1C, GATT_CHARS_PROPERTIES_INDICATE, 5, 5, BLE_DATATYPE_BYTEARRAY);
-if (htsMeasureCharId == 0) {
-  error(F("Could not add Temperature characteristic"));
-}
+  Serial.println(F("Adding the Temperature Measurement characteristic (UUID = 0x2A1C): "));
+  htsMeasureCharId = gatt.addCharacteristic(0x2A1C, GATT_CHARS_PROPERTIES_INDICATE, 5, 5, BLE_DATATYPE_BYTEARRAY);
+  if (htsMeasureCharId == 0) {
+    error(F("Could not add Temperature characteristic"));
+  }
 
   /* Add the Health Thermometer Service to the advertising data (needed for Nordic apps to detect the service) */
-Serial.print(F("Adding Health Thermometer Service UUID to the advertising payload: "));
-uint8_t advdata[] { 0x02, 0x01, 0x06, 0x05, 0x02, 0x09, 0x18, 0x0a, 0x18 };
-ble.setAdvData( advdata, sizeof(advdata) );
+  Serial.print(F("Adding Health Thermometer Service UUID to the advertising payload: "));
+  uint8_t advdata[] { 0x02, 0x01, 0x06, 0x05, 0x02, 0x09, 0x18, 0x0a, 0x18 };
+  ble.setAdvData( advdata, sizeof(advdata) );
 
   /* Reset the device for the new service setting changes to take effect */
-Serial.print(F("Performing a SW reset (service changes require a reset): "));
-ble.reset();
+  Serial.print(F("Performing a SW reset (service changes require a reset): "));
+  ble.reset();
 
-Serial.println();
+  Serial.println();
 
-battery.begin(true);
+  battery.begin(true);
 }
 
 /** Send randomized heart rate data continuously **/
@@ -182,14 +184,18 @@ void loop(void)
  ble_check();
 
 
- if (analogRead(A0)>=threshold){
-  time_count();
-}
+//if (analogRead(A0)>=threshold){
+ // time_count();
+//}
 battery_check();
 
-Serial.print(analogRead(A0));
+//----------------------------
+// Testing
+// Send notification every 5 seconds.
+//----------------------------
+  Serial.print(analogRead(A0));
 
-/*
+  temp=analogRead(A0); // read some junk data
 
   temp_d= (double) temp;
   Serial.print("Value:");
@@ -208,16 +214,17 @@ Serial.println(temp_measurement[4]);
 
   // TODO temperature is not correct due to Bluetooth use IEEE-11073 format
   gatt.setChar(htsMeasureCharId, temp_measurement, 5);
-  // Delay before next measurement update 
-*/
+  // Delay before next measurement update
 
-
-  delay(1000);
+ 
+  delay(5000); 
+ 
 }
+
 
 void battery_check(){
 
-  float measuredvbat = analogRead(VBATPIN);
+float measuredvbat = analogRead(VBATPIN);
 measuredvbat *= 2;    // we divided by 2, so multiply back
 measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
 measuredvbat /= 1024; // convert to voltage
@@ -236,12 +243,12 @@ bat_precentage=constrain(bat_precentage,0,100);
  //ble.println("%");
 
 battery.update(bat_precentage);
-
+  
 }
 
 void ble_check(){
 
-  if(! ble.isConnected()) digitalWrite(ble_led, LOW);
+if(! ble.isConnected()) digitalWrite(ble_led, LOW);
   else digitalWrite(ble_led, HIGH);
 
   
@@ -249,7 +256,7 @@ void ble_check(){
 
 void time_count(){
 
-  Serial.print("count 1 hr");
+    Serial.print("count 1 hr");
 
   long t=0;
   long count_sec = 0;
@@ -259,9 +266,9 @@ void time_count(){
   bool cont_flag = false;
   long prev_count_sec=0;
 
-  for(int i=0;i<5;i++){
+    for(int i=0;i<5;i++){
 
-    temp+=analogRead(A0);
+  temp+=analogRead(A0);
     delay(20);
   }
 
@@ -272,30 +279,30 @@ void time_count(){
 
     T.Timer();
     temp_long=temp;
-
-    while(T.ShowHours()<1){ 
-
+  
+   while(T.ShowHours()<1){ 
+   
   //Serial.println(temp_d);
       cont_flag = true;
 
       while (cont_flag) {
         cont_flag = false;
-        t=0;
+         t=0;
         do{
 
-
-          Serial.println(t);
+          
+            Serial.println(t);
 
           temp_long=0;
           for(int i=0;i<5;i++){
-
-            temp_long+=analogRead(A0);
+        
+          temp_long+=analogRead(A0);
             delay(20);
             t=t+20;
           }
-
+        
           temp_long=temp_long/5;
-
+  
           if (temp_long > threshold) {
             Serial.println("TH");
             
@@ -307,20 +314,20 @@ void time_count(){
 
 
         if (cont_flag) count_sec++; 
+          
+        }
+       
 
-      }
-
-
-
-
-      temp= (int) temp_long;   
-      temp_d= (double) temp;
-      Serial.print("Value:");
-      Serial.println(temp_d);
-      Serial.print("sec counter:");
-      Serial.println(count_sec); 
-      Serial.print("min counter:");
-      Serial.println(count_min); 
+       
+ 
+   temp= (int) temp_long;   
+    temp_d= (double) temp;
+  Serial.print("Value:");
+  Serial.println(temp_d);
+   Serial.print("sec counter:");
+  Serial.println(count_sec); 
+     Serial.print("min counter:");
+  Serial.println(count_min); 
 //temp_measurement[1]= temp_16 = (uint16_t)temp;
 //temp_measurement[2] = temp_16 >> 8;
 
@@ -332,44 +339,44 @@ void time_count(){
         Serial.println("prev if");
         prev_count_sec=count_sec;
         if(count_sec>=5) {
-          Serial.println("sec>15");
+                  Serial.println("sec>15");
 
-          count_min++;
-          count_sec=0;
+           count_min++;
+           count_sec=0;
         }
+       
+  
+  }
+ if(count_min==1){
 
 
-      }
-      if(count_min==1){
-
-
-       temp_measurement[1]= temp_16 = (uint16_t)count_min;
+ temp_measurement[1]= temp_16 = (uint16_t)count_min;
 //temp_measurement[2] = temp_16 >> 8;
 
-       gatt.setChar(htsMeasureCharId, temp_measurement, 5);
-
-       buzzer_alarm1();
-       T.ResetTimer();
-       return;
-     }
+gatt.setChar(htsMeasureCharId, temp_measurement, 5);
+    
+    buzzer_alarm1();
+     T.ResetTimer();
+    return;
+  }
   //else if(temp<threshold) return;
-
+   
    }
    T.ResetTimer();
- }
+  }
 
 } 
 
-
+  
 
 
 void buzzer_alarm1(){
 
 
   digitalWrite(buzzer,HIGH);
-  delay(2000);
+ delay(2000);
 
   digitalWrite(buzzer,LOW);
 
-
+ 
 }
