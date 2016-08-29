@@ -72,10 +72,10 @@ public class SendLogsController: NSObject {
         vc.mailComposeDelegate = self
         
         let name = NSBundle.mainBundle().infoDictionary![kCFBundleNameKey as String] as! String
-        let bundleVersion = NSBundle.mainBundle().infoDictionary![kCFBundleVersionKey as String] as! String //CFBundleGetVersionNumber
+        let bundleVersion = NSBundle.mainBundle().infoDictionary![kCFBundleVersionKey as String] as! String
         let subject = "[Report Problem] Logs for '\(name)' (\(bundleVersion))"
         vc.setSubject(subject)
-        vc.setToRecipients(["nissan@pixandbyte.com"])
+        //vc.setToRecipients(["YOUREMAIL"])
         
         guard let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController else { return }
         
@@ -108,9 +108,6 @@ public class SendLogsController: NSObject {
         return "\(shortVersion) (\(bundleVersion))"
     }
 }
-
-
-// MFMailComposeViewControllerDelegate
 
 extension SendLogsController: MFMailComposeViewControllerDelegate {
     
