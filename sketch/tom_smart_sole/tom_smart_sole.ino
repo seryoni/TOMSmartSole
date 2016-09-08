@@ -1,3 +1,8 @@
+/****
+ *  tom_smart_sole
+ *  Based on healththromometer sketch example for nRF51822 based Bluefruit LE modules
+ */
+
 /*********************************************************************
  This is an example for our nRF51822 based Bluefruit LE modules
 

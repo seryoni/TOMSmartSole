@@ -1,9 +1,9 @@
 # TOMSmartSole
 
 * **OS:** iOS 9.3+
-* **Languages:** Swift
+* **Languages:** Swift 2.2.1
 * **Tool requirements:** Xcode 7.3
-* **License:** ________
+* **License:** MIT
 * **Status:** “alpha”
 
 This app communicate over bluetooth with a BLE device using GATT profile.
@@ -44,11 +44,22 @@ This can be done using their connect app:  [AppStore link](https://itunes.apple.
 
 To learn more on this device [Read here](https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/downloads?view=all#bluefruit-le-connect-ios-slash-swift)
 
-Arduino Libraries:
+# Arduino Libraries:
 * [Adafruit_BluefruitLE_nRF51](https://github.com/adafruit/Adafruit_BluefruitLE_nRF51)
 * [CountUpDownTimer](https://github.com/AndrewMascolo/CountUpDownTimer)
 
 # Testing
-A slight modified version of 'healththermometer' sketch is used.
-It will randomly send
+
+TODO
+
+# Credits
+
+TODO
+
+## License
+
+This project is licensed under the terms of the MIT license. See the LICENSE file.
+
+
+
 
