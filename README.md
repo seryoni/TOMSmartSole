@@ -1,4 +1,4 @@
-# Hero - PressureDetection
+# TOMSmartSole
 
 * **OS:** iOS 9.3+
 * **Languages:** Swift
